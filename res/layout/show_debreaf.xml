@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/button_layout"
+        android:layout_marginLeft="7dip"
+        android:layout_marginRight="7dip"
+        android:paddingTop="20dip"
+        android:orientation="vertical"
+        android:background="@drawable/bb_paper" >
+
+        <TextView
+            android:id="@+id/debreaf_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dip"
+            android:layout_marginBottom="10dip"
+            android:text="Briefing:"
+            android:textColor="#33b5e5"
+            android:textSize="30dip" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="1dip"
+            android:layout_marginRight="1dip"
+            android:layout_marginTop="10dip" >
+
+            <TextView
+                android:id="@+id/debreaf_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/debreaf_header"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:text="There is no debrief for this mission"
+                android:textColor="@android:color/black"
+                android:textSize="18dip" >
+            </TextView>
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <Button
+            android:id="@+id/back_to_menu"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dip"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="Back to game" />
+    </LinearLayout>
+
+</RelativeLayout>

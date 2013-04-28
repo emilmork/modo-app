@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    
+    <TextView
+        android:id="@+id/score_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dip"
+        android:text="The game is over. Your teams score is:"
+        android:textSize="20dip" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/game_over_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/score_header"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dip"
+        android:text="200"
+        android:textColor="#33b5e5"
+        android:textSize="50dip" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/summary_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/game_over_message"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dip"
+        android:text="Keep up the good work!"
+        android:textSize="20dip" >
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/button_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <Button
+            android:id="@+id/back_to_menu"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dip"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="Back to menu" />
+    </LinearLayout>
+
+</RelativeLayout>

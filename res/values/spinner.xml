@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="team_values">
+        <item>Røde kors</item>
+        <item>Forsvaret</item>
+        <item>US Navy Seal</item>
+        <item>Kongens garde</item>
+    </string-array>
+</resources>

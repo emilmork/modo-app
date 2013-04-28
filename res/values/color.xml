@@ -1,0 +1,5 @@
+<resources>
+    <color name="sector_normal">#9032CD32</color>
+    <color name="sector_orange">#90FF7F24</color>
+    <color name="sector_red">#90FF3030</color>
+</resources>

@@ -1,0 +1,174 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!-- INCLUDE TOP CONTENT -->
+
+    <LinearLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <include layout="@layout/game_top" />
+    </LinearLayout>
+
+    <!-- INCLUDE MAIN CONTENT(BUTTONS) -->
+
+    <ViewFlipper
+        android:id="@+id/view_switcher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_buttons"
+        android:layout_below="@id/layout_top" >
+
+        <!-- LAYOUT PAGE 1 - EQUIPEMNT AND ACTIONS -->
+        <!--
+        <LinearLayout
+            android:id="@+id/layout_action_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <include layout="@layout/game_buttons" >
+            </include>
+        </LinearLayout>
+        -->
+
+
+        <!-- LAYOUT PAGE 1 - THE MAP -->
+
+        <LinearLayout
+            android:id="@+id/map_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TableLayout
+                android:id="@+id/layout_map_table"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:stretchColumns="*" >
+            </TableLayout>
+        </LinearLayout>
+
+        <!-- LAYOUT 3 - THE ROOM -->
+
+        <RelativeLayout
+            android:id="@+id/sector_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dip"
+            android:background="@drawable/map_sector_background" >
+
+            <LinearLayout
+                android:id="@+id/event_layout_super"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="invisible" >
+
+                <include layout="@layout/event_layout" >
+                </include>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/sector_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:padding="5dip"
+                android:text="Sector Name"
+                android:textSize="18dip" >
+            </TextView>
+
+            <ListView
+                android:id="@+id/equipment_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sector_name"
+                android:layout_marginTop="20dp" >
+            </ListView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="2dip"
+                android:padding="5dip" >
+            </View>
+
+            <ListView
+                android:id="@+id/civilian_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/equipment_listview"
+                android:layout_marginTop="20dp" >
+            </ListView>
+        </RelativeLayout>
+    </ViewFlipper>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_buttons"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2" >
+
+        <Button
+            android:id="@+id/back_to_map_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dip"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="Back to map"
+            android:visibility="gone" >
+        </Button>
+
+        <Button
+            android:id="@+id/done_btn"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dip"
+            android:onClick="onClick"
+            android:text="End turn"
+            android:visibility="gone" >
+        </Button>
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/panic_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/sector_red"
+        android:visibility="invisible" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Panic increasing! Hurry up!"
+            android:textColor="@android:color/black"
+            android:textSize="25dip" >
+        </TextView>
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView1"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+</RelativeLayout>

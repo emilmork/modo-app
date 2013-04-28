@@ -1,0 +1,51 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.panicgame.core"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="15" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name="ApplicationObject"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/title_activity_main"
+        android:theme="@style/Theme.Sherlock.Light" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".GameListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".GameActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".GameOver"
+            android:label="Game over"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Dialog" >
+        </activity>
+        <activity
+            android:name=".ShowDebreaf"
+            android:label="Game briefing"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Dialog" >
+        </activity>
+    </application>
+
+</manifest>

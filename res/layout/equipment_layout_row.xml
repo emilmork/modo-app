@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/equipment_row"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp" >
+
+    <ImageView
+        android:id="@+id/available_equipment_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/equipment_extinguisher" >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/equipment_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/available_equipment_image"
+        android:text="Extinguisher"
+        android:textColor="@android:color/black"
+        android:textSize="15dp" >
+    </TextView>
+
+
+    <Button
+        android:id="@+id/equipment_pickup_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick up"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp" >
+    </Button>
+
+</RelativeLayout>

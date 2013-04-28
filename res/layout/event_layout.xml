@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Toolbar shown at all Activities in the application. Shows Iridium and GPS signal -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ImageView
+        android:id="@+id/event_image"
+        android:layout_width="90dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:background="@drawable/ic_launcher" >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/event_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/event_fire"
+        android:textColor="@color/sector_red"
+        android:textSize="20dp" >
+    </TextView>
+
+</merge>
