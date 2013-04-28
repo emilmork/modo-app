@@ -1,5 +1,7 @@
 package com.panicgame.creators;
 
+import java.util.ArrayList;
+
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -33,7 +35,7 @@ public class MapLayoutCreator {
 		app = (ApplicationObject) context.getApplicationContext();
 		sectorLayout = new RelativeLayout(context, null, android.R.style.Widget_Button);
 		players = new LinearLayout(context);
-		
+
 		sectorLayout.setBackgroundResource(R.drawable.map_sector_background);
 		sectorLayout.setClickable(true);
 
@@ -43,7 +45,7 @@ public class MapLayoutCreator {
 			} else {
 
 				int panicLevel = sector.getPaniclevel();
-				
+
 				switch (panicLevel) {
 				case Civilian.OK:
 					sectorLayout.setBackgroundResource(R.drawable.sector_green);
@@ -57,7 +59,7 @@ public class MapLayoutCreator {
 				case Civilian.DEAD:
 					sectorLayout.setBackgroundResource(R.drawable.sector_black);
 					break;
-				default: 
+				default:
 					sectorLayout.setBackgroundResource(R.drawable.sector_green);
 					break;
 				}
@@ -81,32 +83,33 @@ public class MapLayoutCreator {
 	public RelativeLayout getLayout() {
 		return sectorLayout;
 	}
-	
-	public void addTextView2(int type) {
+
+	public void addPlayers(ArrayList<String> player_ids) {
+
 		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-		TextView tv = new TextView(context);
-		tv.setTextColor(Color.BLACK);
-		switch (type) {
-		case Util.TEAM_MEMBER:
-			tv.setLayoutParams(params);
-			tv.setText("Team");
-			break;
+		params.addRule(RelativeLayout.BELOW, sector.getPanicLevelID());
+
+		LinearLayout.LayoutParams player_image_params = new LinearLayout.LayoutParams(45, 55);
+		LinearLayout playerList = new LinearLayout(context);
+
+		TextView player = new TextView(context);
+		player.setTextColor(Color.BLACK);
+		ImageView player_image = new ImageView(context);
+		player_image.setBackgroundResource(R.drawable.player);
+
+		for (String player_id : player_ids) {
+			if (player_id.equals(app.me.getId())) {
+				if (player_ids.size() >= 2)
+					player.setText("You + " + (player_ids.size() - 1));
+				else
+					player.setText("You");
+
+				playerList.addView(player_image, player_image_params);
+				playerList.addView(player);
+				sectorLayout.addView(playerList, params);
+			}
 		}
-		players.addView(tv);
-	}
-	
-	public void addImageTeam(int type) {
-		// Image of you params
-		ImageView img = new ImageView(context);
-		switch (type) {
-		case Util.TEAM_MEMBER:
-			RelativeLayout.LayoutParams team_param = new RelativeLayout.LayoutParams(50, 50);
-			img.setBackgroundResource(R.drawable.crew_member);
-			img.setLayoutParams(team_param);
-			img.setId(sector.getTeamMemberImageID());
-			break;
-		}
-		players.addView(img);
+
 	}
 
 	/**
