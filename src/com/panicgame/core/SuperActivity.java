@@ -78,6 +78,12 @@ public class SuperActivity extends SherlockActivity {
 			gson = new Gson();
 		}
 	}
+	
+	public int getLayoutIdFromName(String name,String quantifyer){
+		String layout_name = name.substring(0, 1).toLowerCase() + name.substring(1);
+		int image_id = app.getResources().getIdentifier(layout_name, quantifyer, "com.panicgame.core");
+		return image_id;
+	}
 
 	public String fixNameForSpace(String name) {
 		return name.replace(" ", "%20");

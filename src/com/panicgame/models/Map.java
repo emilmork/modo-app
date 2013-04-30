@@ -24,8 +24,8 @@ public class Map {
 	public Sector getSector(String player_id){
 		for(ArrayList<Sector> sector_list : sectors){
 			for(Sector s : sector_list){
-				for(String id : s.getPlayers()){
-					if(id.equals(player_id))return s;
+				for(Player player : s.getPlayers()){
+					if(player.getId().equals(player_id))return s;
 				}
 			}
 		}

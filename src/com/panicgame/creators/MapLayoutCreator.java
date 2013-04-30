@@ -19,6 +19,7 @@ import com.panicgame.core.ApplicationObject;
 import com.panicgame.core.R;
 import com.panicgame.core.R.drawable;
 import com.panicgame.models.Civilian;
+import com.panicgame.models.Player;
 import com.panicgame.models.Sector;
 import com.panicgame.utils.Util;
 
@@ -84,26 +85,54 @@ public class MapLayoutCreator {
 		return sectorLayout;
 	}
 
-	public void addPlayers(ArrayList<String> player_ids) {
-
+	public void addPlayers(ArrayList<Player> player_ids) {
+		
 		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 		params.addRule(RelativeLayout.BELOW, sector.getPanicLevelID());
 
-		LinearLayout.LayoutParams player_image_params = new LinearLayout.LayoutParams(45, 55);
+		LinearLayout.LayoutParams player_image_params = new LinearLayout.LayoutParams(30, 45);
 		LinearLayout playerList = new LinearLayout(context);
 
 		TextView player = new TextView(context);
 		player.setTextColor(Color.BLACK);
 		ImageView player_image = new ImageView(context);
-		player_image.setBackgroundResource(R.drawable.player);
+		
 
-		for (String player_id : player_ids) {
-			if (player_id.equals(app.me.getId())) {
+		if(app.me.getPostion_id()!=sector.getId()){
+			for (Player p : player_ids) {
+					String role = p.getRole();
+					String image_name;
+					image_name = role.substring(0, 1).toLowerCase() + role.substring(1);
+					int image_id = app.getResources().getIdentifier(image_name, "drawable", "com.panicgame.core");
+					
+					if (player_ids.size() >= 2)
+						player.setText(p.getName()+" + "+ (player_ids.size() - 1));
+					else
+						player.setText(p.getName());
+					
+					player_image.setBackgroundResource(image_id);
+					playerList.addView(player_image, player_image_params);
+					playerList.addView(player);
+					sectorLayout.addView(playerList, params);
+					break;
+			}
+			
+			
+			return;
+		}
+		for (Player p : player_ids) {
+			if (p.getId().equals(app.me.getId())) {
+				String role = p.getRole();
+				String image_name;
+				image_name = role.substring(0, 1).toLowerCase() + role.substring(1);
+				int image_id = app.getResources().getIdentifier(image_name, "drawable", "com.panicgame.core");
+				
 				if (player_ids.size() >= 2)
 					player.setText("You + " + (player_ids.size() - 1));
 				else
 					player.setText("You");
-
+				
+				player_image.setBackgroundResource(image_id);
 				playerList.addView(player_image, player_image_params);
 				playerList.addView(player);
 				sectorLayout.addView(playerList, params);

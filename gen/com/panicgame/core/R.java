@@ -236,6 +236,16 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int dividerVertical=0x7f010029;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int dividerWidth=0x7f010051;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -828,25 +838,29 @@ containing a value of this type.
         public static final int equipment_hammer=0x7f020063;
         public static final int equipment_medic=0x7f020064;
         public static final int fire=0x7f020065;
-        public static final int health=0x7f020066;
-        public static final int heart=0x7f020067;
-        public static final int ic_action_search=0x7f020068;
-        public static final int ic_launcher=0x7f020069;
-        public static final int locked=0x7f02006a;
-        public static final int map=0x7f02006b;
-        public static final int map_sector_background=0x7f02006c;
-        public static final int panic_level=0x7f02006d;
-        public static final int peoples=0x7f02006e;
-        public static final int player=0x7f02006f;
-        public static final int popup_original=0x7f020070;
-        public static final int quick_action_background=0x7f020071;
-        public static final int refresh=0x7f020072;
-        public static final int safe_sector=0x7f020073;
-        public static final int sector_black=0x7f020074;
-        public static final int sector_green=0x7f020075;
-        public static final int sector_orange=0x7f020076;
-        public static final int sector_red=0x7f020077;
-        public static final int walkie_talkie=0x7f020078;
+        public static final int firefighter=0x7f020066;
+        public static final int health=0x7f020067;
+        public static final int heart=0x7f020068;
+        public static final int ic_action_search=0x7f020069;
+        public static final int ic_launcher=0x7f02006a;
+        public static final int locked=0x7f02006b;
+        public static final int map=0x7f02006c;
+        public static final int map_sector_background=0x7f02006d;
+        public static final int medic=0x7f02006e;
+        public static final int militery=0x7f02006f;
+        public static final int panic_level=0x7f020070;
+        public static final int peoples=0x7f020071;
+        public static final int player=0x7f020072;
+        public static final int popup_original=0x7f020073;
+        public static final int quick_action_background=0x7f020074;
+        public static final int refresh=0x7f020075;
+        public static final int safe_sector=0x7f020076;
+        public static final int sector_black=0x7f020077;
+        public static final int sector_green=0x7f020078;
+        public static final int sector_orange=0x7f020079;
+        public static final int sector_red=0x7f02007a;
+        public static final int volunteer=0x7f02007b;
+        public static final int walkie_talkie=0x7f02007c;
     }
     public static final class id {
         public static final int about_link=0x7f050032;
@@ -879,29 +893,29 @@ containing a value of this type.
         public static final int abs__title=0x7f05001b;
         public static final int abs__titleDivider=0x7f05001c;
         public static final int abs__up=0x7f05000b;
-        public static final int arrow_down=0x7f050066;
-        public static final int arrow_up=0x7f050065;
+        public static final int arrow_down=0x7f05006a;
+        public static final int arrow_up=0x7f050069;
         public static final int available_equipment_image=0x7f05003c;
-        public static final int back_to_map_btn=0x7f050050;
+        public static final int back_to_map_btn=0x7f050052;
         public static final int back_to_menu=0x7f050045;
         public static final int bottom_buttons=0x7f050048;
-        public static final int btn_actions=0x7f05005f;
-        public static final int btn_location=0x7f05005d;
-        public static final int btn_tools=0x7f05005e;
+        public static final int btn_actions=0x7f050061;
+        public static final int btn_location=0x7f05005f;
+        public static final int btn_tools=0x7f050060;
         public static final int button_layout=0x7f050044;
         public static final int civilan_health=0x7f050039;
         public static final int civilan_image=0x7f050034;
         public static final int civilan_panic=0x7f050037;
         public static final int civilian_checkbox=0x7f05003a;
         public static final int civilian_health_image=0x7f050038;
-        public static final int civilian_listview=0x7f05004f;
+        public static final int civilian_listview=0x7f050051;
         public static final int civilian_name=0x7f050035;
         public static final int civilian_panic_image=0x7f050036;
         public static final int civilian_row=0x7f050033;
-        public static final int debreaf_header=0x7f050068;
-        public static final int debreaf_message=0x7f050069;
+        public static final int debreaf_header=0x7f05006c;
+        public static final int debreaf_message=0x7f05006d;
         public static final int disableHome=0x7f050009;
-        public static final int done_btn=0x7f050051;
+        public static final int done_btn=0x7f050053;
         public static final int equipment_listview=0x7f05004e;
         public static final int equipment_name=0x7f05003d;
         public static final int equipment_pickup_btn=0x7f05003e;
@@ -909,8 +923,8 @@ containing a value of this type.
         public static final int event_image=0x7f05003f;
         public static final int event_layout_super=0x7f05004c;
         public static final int event_message=0x7f050040;
-        public static final int game_desc=0x7f050062;
-        public static final int game_name=0x7f050061;
+        public static final int game_desc=0x7f050064;
+        public static final int game_name=0x7f050063;
         public static final int game_over_message=0x7f050042;
         public static final int homeAsUp=0x7f050006;
         public static final int info=0x7f05002a;
@@ -918,27 +932,31 @@ containing a value of this type.
         public static final int layout_map_table=0x7f05004a;
         public static final int layout_top=0x7f050046;
         public static final int listMode=0x7f050002;
-        public static final int listview_games=0x7f050060;
-        public static final int location_table=0x7f050067;
+        public static final int listview_games=0x7f050062;
+        public static final int location_table=0x7f05006b;
         public static final int log_inn_button=0x7f050030;
         public static final int log_inn_form=0x7f050029;
         public static final int map_container=0x7f050049;
         public static final int name_input=0x7f05002c;
         public static final int normal=0x7f050001;
-        public static final int panic_screen=0x7f050052;
-        public static final int panic_wave_time=0x7f05005a;
-        public static final int player_NAME=0x7f050056;
-        public static final int player_image=0x7f050054;
-        public static final int player_role=0x7f050058;
-        public static final int progressBar1=0x7f050053;
+        public static final int panic_screen=0x7f050054;
+        public static final int panic_wave_time=0x7f05005c;
+        public static final int player_NAME=0x7f050058;
+        public static final int player_image=0x7f050056;
+        public static final int player_name_list_view=0x7f050066;
+        public static final int player_role=0x7f05005a;
+        public static final int players_row=0x7f050065;
+        public static final int progressBar1=0x7f050055;
         public static final int reconnect_btn=0x7f050031;
-        public static final int refresh=0x7f05006a;
-        public static final int remaining_time_layout=0x7f05005b;
-        public static final int role_name_value=0x7f050057;
-        public static final int role_role_value=0x7f050059;
+        public static final int refresh=0x7f05006e;
+        public static final int remaining_time_layout=0x7f05005d;
+        public static final int role_name_value=0x7f050059;
+        public static final int role_role_value=0x7f05005b;
         public static final int role_spinner=0x7f05002e;
         public static final int score_header=0x7f050041;
-        public static final int scroller=0x7f050063;
+        public static final int scroller=0x7f050067;
+        public static final int sector_bottom=0x7f050050;
+        public static final int sector_bottom_scroll=0x7f05004f;
         public static final int sector_name=0x7f05004d;
         public static final int sector_view=0x7f05004b;
         public static final int showCustom=0x7f050008;
@@ -949,13 +967,13 @@ containing a value of this type.
         public static final int team_spinner=0x7f05002f;
         public static final int textView1=0x7f05002b;
         public static final int textView2=0x7f05002d;
-        public static final int top_table_layout=0x7f050055;
-        public static final int tracks=0x7f050064;
+        public static final int top_table_layout=0x7f050057;
+        public static final int tracks=0x7f050068;
         public static final int tv_title=0x7f050028;
         public static final int useLogo=0x7f050004;
         public static final int view_switcher=0x7f050047;
         public static final int wrap_content=0x7f050000;
-        public static final int your_turn_clock=0x7f05005c;
+        public static final int your_turn_clock=0x7f05005e;
     }
     public static final class integer {
         public static final int abs__max_action_buttons=0x7f090000;
@@ -994,12 +1012,13 @@ containing a value of this type.
         public static final int games_rowlayout=0x7f03001e;
         public static final int horiz_separator=0x7f03001f;
         public static final int map_relative_layout=0x7f030020;
-        public static final int popup_horizontal=0x7f030021;
-        public static final int popup_vertical=0x7f030022;
-        public static final int setlocation_layout=0x7f030023;
-        public static final int sherlock_spinner_dropdown_item=0x7f030024;
-        public static final int sherlock_spinner_item=0x7f030025;
-        public static final int show_debreaf=0x7f030026;
+        public static final int players_listview=0x7f030021;
+        public static final int popup_horizontal=0x7f030022;
+        public static final int popup_vertical=0x7f030023;
+        public static final int setlocation_layout=0x7f030024;
+        public static final int sherlock_spinner_dropdown_item=0x7f030025;
+        public static final int sherlock_spinner_item=0x7f030026;
+        public static final int show_debreaf=0x7f030027;
     }
     public static final class menu {
         public static final int activity_main=0x7f0d0000;
@@ -1154,6 +1173,59 @@ containing a value of this type.
         public static final int game_action_button=0x7f0b005a;
     }
     public static final class styleable {
+        /**  Defines the custom XML attributes supported for a HorizontalListView 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #HorizontalListView_android_divider com.panicgame.core:android_divider}</code></td><td></td></tr>
+           <tr><td><code>{@link #HorizontalListView_android_fadingEdgeLength com.panicgame.core:android_fadingEdgeLength}</code></td><td></td></tr>
+           <tr><td><code>{@link #HorizontalListView_android_requiresFadingEdge com.panicgame.core:android_requiresFadingEdge}</code></td><td></td></tr>
+           <tr><td><code>{@link #HorizontalListView_dividerWidth com.panicgame.core:dividerWidth}</code></td><td></td></tr>
+           </table>
+           @see #HorizontalListView_android_divider
+           @see #HorizontalListView_android_fadingEdgeLength
+           @see #HorizontalListView_android_requiresFadingEdge
+           @see #HorizontalListView_dividerWidth
+         */
+        public static final int[] HorizontalListView = {
+            0x010100e0, 0x01010129, 0x010103a5, 0x7f010051
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.panicgame.core.R.attr#android_divider}
+          attribute's value can be found in the {@link #HorizontalListView} array.
+          @attr name android:android_divider
+        */
+        public static final int HorizontalListView_android_divider = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.panicgame.core.R.attr#android_fadingEdgeLength}
+          attribute's value can be found in the {@link #HorizontalListView} array.
+          @attr name android:android_fadingEdgeLength
+        */
+        public static final int HorizontalListView_android_fadingEdgeLength = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.panicgame.core.R.attr#android_requiresFadingEdge}
+          attribute's value can be found in the {@link #HorizontalListView} array.
+          @attr name android:android_requiresFadingEdge
+        */
+        public static final int HorizontalListView_android_requiresFadingEdge = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.panicgame.core.R.attr#dividerWidth}
+          attribute's value can be found in the {@link #HorizontalListView} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:dividerWidth
+        */
+        public static final int HorizontalListView_dividerWidth = 3;
         /**  Attributes used to style the Action Bar. 
            <p>Includes the following attributes:</p>
            <table>

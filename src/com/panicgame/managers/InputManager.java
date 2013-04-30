@@ -1,6 +1,7 @@
 package com.panicgame.managers;
 
 import java.io.Console;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -67,8 +68,9 @@ public class InputManager {
 					Log.i("TEAM", response.getContent(Util.RESPONSE_TEAMS));
 
 					try {
-						app.teams = gson.fromJson(response.getContent(Util.RESPONSE_TEAMS), new TypeToken<ArrayList<Team>>() {
-						}.getType());
+						Type listType = new TypeToken<ArrayList<Team>>(){}.getType();
+						
+						app.teams = gson.fromJson(response.getContent(Util.RESPONSE_TEAMS),listType);
 						fireTeamsReceived();
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -78,8 +80,10 @@ public class InputManager {
 				} else if (key.equals(Util.RESPONSE_MAP)) {
 
 					try {
-						app.map = gson.fromJson(response.getContent(Util.RESPONSE_MAP), new TypeToken<com.panicgame.models.Map>() {
-						}.getType());
+						
+						Type listType = new TypeToken<com.panicgame.models.Map>() {}.getType();
+						
+						app.map = gson.fromJson(response.getContent(Util.RESPONSE_MAP), listType);
 						fireMapUpdate();
 					} catch (Exception e) {
 						e.printStackTrace();

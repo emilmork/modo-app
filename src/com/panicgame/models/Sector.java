@@ -18,11 +18,11 @@ public class Sector {
 	private ArrayList<Civilian> cls;
 	public int id;
 	public String event;
-	public ArrayList<String>pls = new ArrayList<String>();
+	public ArrayList<Player>pls = new ArrayList<Player>();
 	public ArrayList<Integer> eq = new ArrayList<Integer>();
 	public boolean safe = false;
 	
-	public Sector(String nm,int pl,int id,ArrayList<Civilian> cls,ArrayList<String>pls,String event,boolean safe,ArrayList<Integer>eq){
+	public Sector(String nm,int pl,int id,ArrayList<Civilian> cls,ArrayList<Player>pls,String event,boolean safe,ArrayList<Integer>eq){
 		
 		this.nm = nm;
 		this.pl = pl;
@@ -61,13 +61,19 @@ public class Sector {
 	public void setSafe(boolean safe) {
 		this.safe = safe;
 	}
-
 	public void removePlayer(String id){
-		pls.remove(id);
+		Log.i("Player","Removing player called");
+		Iterator<Player>i = pls.iterator();
+		while(i.hasNext()){
+			if(id.equals(i.next().getId())){
+				i.remove();
+				break;
+			}
+		}
 	}
 	
-	public void addPlayer(String id){
-		pls.add(id);
+	public void addPlayer(Player player){
+		pls.add(player);
 	}
 	
 	public void setEvent(String event){
@@ -78,11 +84,11 @@ public class Sector {
 		return event;
 	}
 	
-	public ArrayList<String> getPlayers() {
+	public ArrayList<Player> getPlayers() {
 		return pls;
 	}
 
-	public void setPlayers(ArrayList<String> pls) {
+	public void setPlayers(ArrayList<Player> pls) {
 		this.pls = pls;
 	}
 

@@ -26,10 +26,10 @@ public class Medic extends Player {
 	
 	@Override
 	public void initActions(Context context){
-		actions.add(new MovePeople(context));
-		actions.add(new HealPeople(5000, 45, context));
-		actions.add(new CalmDown(5000, context));
-		actions.add(new Broadcast(context));
+		player_actions.add(new MovePeople(context));
+		player_actions.add(new HealPeople(5000, 45, context));
+		player_actions.add(new CalmDown(5000, context));
+		player_actions.add(new Broadcast(context));
 	}
 	
 }

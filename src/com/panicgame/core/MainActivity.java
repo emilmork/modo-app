@@ -18,6 +18,7 @@ import com.panicgame.popupwindow.ActionItem;
 import com.panicgame.popupwindow.QuickAction;
 import com.panicgame.roles.Firefighter;
 import com.panicgame.roles.Medic;
+import com.panicgame.roles.Military;
 import com.panicgame.roles.Volunteer;
 import com.panicgame.utils.Util;
 
@@ -148,8 +149,10 @@ public class MainActivity extends SuperActivity implements GameListener {
 					player = new Medic(name);
 				}else if(role.equals("Firefighter")){
 					player = new Firefighter(name);
-				}else{
+				}else if(role.equals("Volunteer")){
 					player = new Volunteer(name);
+				}else{
+					player = new Military(name);
 				}
 				app.me = player;
 				app.me.setRole(role);
@@ -229,6 +232,7 @@ public class MainActivity extends SuperActivity implements GameListener {
 		roles.add("Volunteer");
 		roles.add("Firefighter");
 		roles.add("Medic");
+		roles.add("Militery");
 		
 		role_adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item,roles);
 		role_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

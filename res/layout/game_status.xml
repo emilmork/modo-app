@@ -103,10 +103,24 @@
                 android:padding="5dip" >
             </View>
 
+            <HorizontalScrollView
+                android:id="@+id/sector_bottom_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true" >
+
+                <LinearLayout
+                    android:id="@+id/sector_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                </LinearLayout>
+            </HorizontalScrollView>
+
             <ListView
                 android:id="@+id/civilian_listview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_above="@id/sector_bottom_scroll"
                 android:layout_below="@id/equipment_listview"
                 android:layout_marginTop="20dp" >
             </ListView>
@@ -114,9 +128,9 @@
     </ViewFlipper>
 
     <LinearLayout
+        android:id="@+id/bottom_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottom_buttons"
         android:layout_alignParentBottom="true"
         android:weightSum="2" >
 
@@ -133,17 +147,15 @@
 
         <Button
             android:id="@+id/done_btn"
-            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="1dip"
+            android:layout_weight="1"
             android:onClick="onClick"
             android:text="End turn"
             android:visibility="gone" >
         </Button>
     </LinearLayout>
-
-
 
     <RelativeLayout
         android:id="@+id/panic_screen"

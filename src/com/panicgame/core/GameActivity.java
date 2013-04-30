@@ -140,7 +140,9 @@ public class GameActivity extends SuperActivity implements GameListener, EventLi
 		actionsLeft = app.me.actionsLeft;
 		movementLeft = app.me.movementsLeft;
 		
-
+		ImageView player_image = (ImageView)findViewById(R.id.player_image);
+		player_image.setBackgroundResource(getLayoutIdFromName(app.me.getRole(), "drawable"));
+		
 		app.client.write(action.getAction());
 
 		initEquipmentAction();
@@ -327,6 +329,7 @@ public class GameActivity extends SuperActivity implements GameListener, EventLi
 					actionAction.dropActions();
 					app.me.removeActions();
 					app.me.initActions(GameActivity.this);
+					
 					for (PlayerAction pla : app.me.getActions())
 						actionAction.addActionItem(pla.getActionItem());
 
@@ -823,12 +826,16 @@ public class GameActivity extends SuperActivity implements GameListener, EventLi
 		Action action = new SetPosition();
 		action.addParam("to_pos", "" + s.getId());
 
-		app.me.exploredSectors.add(s.getId());
+		app.me.exploredSectors.add(sectorId);
 		// IS THIS THE REASON THE APPLICATION FAILED?
-		app.map.getSector(app.me.getId()).removePlayer(app.me.getId());
+		//app.map.getSector(app.me.getId()).removePlayer(app.me.getId());
+		app.getSector(app.me.getPostion_id()).removePlayer(app.me.getId());
+		//Set new position id
+		app.me.setPostion_id(sectorId);
+		
 		// app.getSector(app.me.getPostion_id()).removePlayer(app.me.getId());
-		app.me.setPostion_id(s.getId());
-		s.addPlayer(app.me.getId());
+		
+		s.addPlayer(app.me);
 
 		MapCreator.getInstance(GameActivity.this).createMap();
 		app.client.write(action.getAction());
@@ -917,8 +924,8 @@ public class GameActivity extends SuperActivity implements GameListener, EventLi
 					send = false;
 					for (ArrayList<Sector> sector_list : app.map.getSectors()) {
 						for (Sector s : sector_list) {
-							for (String id : s.getPlayers()) {
-								if (!id.equals(app.me.getId())) {
+							for (Player p : s.getPlayers()) {
+								if (!p.getId().equals(app.me.getId())) {
 									app.me.exploredSectors.add(s.getId());
 									break;
 								}

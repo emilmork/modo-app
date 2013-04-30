@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/players_row"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp" >
+
+    <ImageView
+        android:id="@+id/player_image"
+        android:layout_width="28dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/player" >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/player_name_list_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/player_image"
+        android:text="Player"
+        android:layout_marginLeft="5dip"
+        android:textColor="@android:color/black"
+        android:textSize="15dp" >
+    </TextView>
+
+</RelativeLayout>

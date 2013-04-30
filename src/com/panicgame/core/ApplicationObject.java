@@ -32,6 +32,7 @@ public class ApplicationObject extends Application {
 	}
 	
 	
+	
 	public Sector getSector(int position_id){
 		for(ArrayList<Sector> s : map.getSectors()){
 			for(Sector sector : s){

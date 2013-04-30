@@ -24,7 +24,7 @@ public class Player {
 	public ArrayList<Integer>exploredSectors;
 	public ArrayList<Integer>checkedCivilians;	
 	public ArrayList<Equipment>equipments2;
-	public ArrayList<PlayerAction>actions;
+	public ArrayList<PlayerAction>player_actions;
 
 	private ArrayList<Civilian>attachedCivils;
 	
@@ -35,6 +35,13 @@ public class Player {
 	public void setPostion_id(int postion_id) {
 		this.postion_id = postion_id;
 	}
+	
+	public Player(String name, String id,String role,ArrayList<Integer>actions){
+		this.name = name;
+		this.id = id;
+		this.role = role;
+		Log.i("Player constructor. Actions",""+actions.size());
+	}
 
 	public Player(String name){
 		this.name = name;
@@ -44,7 +51,7 @@ public class Player {
 		
 		//*****
 		equipments2 = new ArrayList<Equipment>();
-		actions = new ArrayList<PlayerAction>();
+		player_actions = new ArrayList<PlayerAction>();
 	}
 	
 	public void initEquipment(Context context){
@@ -53,22 +60,22 @@ public class Player {
 	}
 	
 	public void initActions(Context context){
-		actions.add(new MovePeople(context));
-		actions.add(new CalmDown(5000, context));
-		actions.add(new HealPeople(5000, 20, context));
-		actions.add(new Broadcast(context));
+		player_actions.add(new MovePeople(context));
+		player_actions.add(new CalmDown(5000, context));
+		player_actions.add(new HealPeople(5000, 20, context));
+		player_actions.add(new Broadcast(context));
 	}
 	
 	public ArrayList<PlayerAction>getActions(){
-		return actions;
+		return player_actions;
 	}
 	
 	public void removeActions(){
-		actions.clear();
+		player_actions.clear();
 	}
 	
 	public void addAction(PlayerAction action){
-		actions.add(action);
+		player_actions.add(action);
 	}
 
 	public String getName() {
