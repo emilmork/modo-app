@@ -10,7 +10,7 @@ public class Util {
 	public static final String RESPONSE = "response";
 	
 	//URLS"http://192.168.0.133:8000/getTeams"
-	public static final String SERVER_URL = "192.168.0.133";
+	public static final String SERVER_URL = "gribb.dyndns.org";
 	public static final int SERVER_PORT = 5000;
 	
 	/**
