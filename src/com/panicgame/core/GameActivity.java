@@ -301,7 +301,7 @@ public class GameActivity extends SuperActivity implements GameListener, EventLi
 					for (Civilian c : app.me.getAttachedCivilians())
 						sector.getCivilians().remove(c);
 
-					increaseActions();
+					//increaseActions(); AVOID actions left getting -1
 					showToast(app.me.getAttachedCivilians().size() + " civilians are following you");
 					MapCreator.getInstance(GameActivity.this).createRoom(sector);
 					break;
@@ -549,14 +549,21 @@ public class GameActivity extends SuperActivity implements GameListener, EventLi
 			return;
 
 		if (!app.me.getAttachedCivilians().isEmpty()) {
+			Action dropCivilsAction = new MovePeople();
+			
 			ArrayList<Civilian> attachedCivilians = app.me.getAttachedCivilians();
 			Sector sector = app.map.getSector(app.me.getId());
 
 			for (int i = 0; i < attachedCivilians.size(); i++) {
 				sector.getCivilians().add(attachedCivilians.get(i));
+				dropCivilsAction.addParam("civil" + (i + 1), "" + attachedCivilians.get(i).getId());
 			}
+			//Notify to server dropped people
+			app.client.write(dropCivilsAction.getAction());
 		}
+		
 		app.me.dropCivilians();
+		
 		initActionQuickAction();
 
 		yourTimeRemainingCounter.setViewCounterVisible(false);
