@@ -52,7 +52,7 @@ public class GameListActivity extends SuperActivity implements OnItemClickListen
 	public void joineGame(){
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("Joine game");
-		builder.setMessage("Are you sure you want to joine this game ?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+		builder.setMessage("Are you sure you want to join this game ?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int id) {
 				dialog.cancel();
 				
@@ -170,6 +170,12 @@ public class GameListActivity extends SuperActivity implements OnItemClickListen
 
 	@Override
 	public void teamsReceived() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void negotiationStarted(int timer) {
 		// TODO Auto-generated method stub
 		
 	}

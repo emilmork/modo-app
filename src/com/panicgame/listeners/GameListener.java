@@ -15,4 +15,5 @@ public interface GameListener {
 	public void gameStarted(int panicintercal);
 	public void gameOver(String score);
 	public void teamsReceived();
+	public void negotiationStarted(int timer);
 }

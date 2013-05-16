@@ -102,6 +102,10 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
      * @return  Action Item at the position
      */
     public ActionItem getActionItem(int index) {
+    	if(actionItems.isEmpty()){
+    		
+    		return null;
+    	}
     	Log.i("ActionItem","getActionItem: index: " + index);
     	Log.i("ActionItem","getActionItem list size() == " + actionItems.size());
     	for(int i=0;i<actionItems.size();i++){

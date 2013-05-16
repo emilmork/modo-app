@@ -22,9 +22,12 @@ public class Player {
 	public int actionsLeft = 3;
 	public int movementsLeft = 2;
 	public ArrayList<Integer>exploredSectors;
-	public ArrayList<Integer>checkedCivilians;	
+	public ArrayList<Integer>checkedCivilians;
+	
 	public ArrayList<Equipment>equipments2;
 	public ArrayList<PlayerAction>player_actions;
+	
+	public ArrayList<PlayerAction>temp_actions = new ArrayList<PlayerAction>();
 
 	private ArrayList<Civilian>attachedCivils;
 	
@@ -60,10 +63,16 @@ public class Player {
 	}
 	
 	public void initActions(Context context){
-		player_actions.add(new MovePeople(context));
-		player_actions.add(new CalmDown(5000, context));
-		player_actions.add(new HealPeople(5000, 20, context));
-		player_actions.add(new Broadcast(context));
+		temp_actions.add(new MovePeople(context));
+		temp_actions.add(new CalmDown(5000, context));
+		temp_actions.add(new HealPeople(5000, 20, context));
+		temp_actions.add(new Broadcast(context));
+	}
+	
+	public void refreshActions(){
+		for(PlayerAction action : temp_actions){
+			player_actions.add(action);
+		}
 	}
 	
 	public ArrayList<PlayerAction>getActions(){

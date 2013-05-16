@@ -21,7 +21,7 @@ public class Medic extends Player {
 	
 	@Override
 	public void initEquipment(Context context){
-		equipments2.add(new Hammer(10000,context));
+		//equipments2.add(new Hammer(10000,context));
 	}
 	
 	@Override

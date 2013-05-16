@@ -342,4 +342,13 @@ public class MainActivity extends SuperActivity implements GameListener {
 		
 	}
 
+
+
+
+	@Override
+	public void negotiationStarted(int timer) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

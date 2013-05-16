@@ -237,12 +237,13 @@ public class GameActivity extends SuperActivity implements GameListener, EventLi
 	}
 
 	private void initActionQuickAction() {
-		
+		/*
 		if (actionAction != null) {
 			actionAction.dropActions();
 			actionAction.setOnActionItemClickListener(null);
 			actionAction.removeListener();
 		}
+		*/
 		
 		actionAction = new QuickAction(this, QuickAction.VERTICAL);
 		final ActionItem dropCivils = new ActionItem(Util.ID_ACTION_DROP_PEOPLE, "Drop people", getResources().getDrawable(R.drawable.peoples));
@@ -327,20 +328,28 @@ public class GameActivity extends SuperActivity implements GameListener, EventLi
 					Action movePeopleAction = new MovePeople();
 
 					actionAction.dropActions();
-					app.me.removeActions();
-					app.me.initActions(GameActivity.this);
+					//app.me.removeActions();
 					
+					//TEST This work okey. No crash yet. One crash on movePeople. Two crash.
+					//app.me.initActions(GameActivity.this);
+					for(PlayerAction a : app.me.getActions()){
+						actionAction.addActionItem(a.getActionItem());
+					}
+					
+					//TEST
+					
+					//app.me.initActions(GameActivity.this); //Old solution. This will crash some times. Not optimal.
+					/*
 					for (PlayerAction pla : app.me.getActions())
 						actionAction.addActionItem(pla.getActionItem());
-
+					*/
 					// Drop civilian in sector
 					for (int i = 0; i < attachedCivilians.size(); i++) {
 						sector.getCivilians().add(attachedCivilians.get(i));
 						movePeopleAction.addParam("civil" + (i + 1), "" + attachedCivilians.get(i).getId());
 					}
-					if (sector.isSafe())
-						movePeopleAction.addParam("rescued", "true");
-
+					if (sector.isSafe())movePeopleAction.addParam("rescued", "true");
+					
 					app.me.dropCivilians();
 					app.client.write(movePeopleAction.getAction());
 
@@ -359,6 +368,7 @@ public class GameActivity extends SuperActivity implements GameListener, EventLi
 
 					for (int i = 0; i < selectedCivilians.size(); i++) {
 						action.addParam("civil" + (i + 1), "" + selectedCivilians.get(i));
+						action.addParam("heal_value", ""+heal_action.getProcent());
 						duration += player_action.getDuration();
 					}
 
@@ -437,7 +447,7 @@ public class GameActivity extends SuperActivity implements GameListener, EventLi
 			showToast("You have no more moves left");
 			checkDone();
 		} else {
-			movementLeft--;
+			if(movementLeft>0)movementLeft--;
 			location.setText("Location(" + movementLeft + ")");
 		}
 	}
@@ -451,6 +461,7 @@ public class GameActivity extends SuperActivity implements GameListener, EventLi
 		} else {
 			actionsLeft--;
 			actions.setText("Actions(" + actionsLeft + ")");
+
 		}
 	}
 
@@ -1004,6 +1015,18 @@ public class GameActivity extends SuperActivity implements GameListener, EventLi
 	public void broadcastMessageReceived(String title, String message) {
 		showDialog(title, message);
 
+	}
+
+	@Override
+	public void negotiationStarted(final int timer) {
+		h.post(new Runnable() {
+			@Override
+			public void run() {
+				int seconds = timer/1000;
+				Toast.makeText(GameActivity.this, "The game will start within "+seconds+" seconds!", Toast.LENGTH_LONG).show();
+			}
+		});
+		
 	}
 
 }

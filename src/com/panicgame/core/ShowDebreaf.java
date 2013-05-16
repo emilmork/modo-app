@@ -104,4 +104,12 @@ public class ShowDebreaf extends SuperActivity implements GameListener {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+	@Override
+	public void negotiationStarted(int timer) {
+		// TODO Auto-generated method stub
+		
+	}
 }

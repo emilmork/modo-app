@@ -71,6 +71,7 @@ public class InputManager {
 						Type listType = new TypeToken<ArrayList<Team>>(){}.getType();
 						
 						app.teams = gson.fromJson(response.getContent(Util.RESPONSE_TEAMS),listType);
+							
 						fireTeamsReceived();
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -118,6 +119,9 @@ public class InputManager {
 						String[] parts = res.split(";");
 						parseBroadCastMessage(parts);
 						Log.i("Broadcast", res);
+					} else if(res.contains("startNegotiation")){
+						String[]parts = res.split(";");
+						fireStartNegotiation(parts[1]);
 					}
 
 					Log.i("UPDATE", "MESSAGE RECEIVED AND PARSED");
@@ -187,6 +191,8 @@ public class InputManager {
 			e.mapUpdate();
 		}
 	}
+	
+
 
 	public void fireBroadCastMessage(String title, String message) {
 		for (EventListener e : eventListeners) {
@@ -236,6 +242,13 @@ public class InputManager {
 	public void fireGameOver(String score) {
 		for (GameListener g : listeners) {
 			g.gameOver(score);
+		}
+	}
+	
+	public void fireStartNegotiation(String startsIn){
+		Log.i("Negotiation","Negotiation started");
+		for(GameListener e : listeners){
+			e.negotiationStarted(Integer.parseInt(startsIn));
 		}
 	}
 
